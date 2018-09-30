@@ -2,7 +2,9 @@
 #define NODE_H
 
 class Node{
-
+	
+public:
+	Node();
 };
 
 #endif

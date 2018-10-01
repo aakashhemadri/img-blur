@@ -19,12 +19,11 @@ INCLUDE = -Iinclude
 LDFLAGS = -Lobj
 
 #OBJECTS :=  $(wildcard  $(BUILD_PATH)/*.o)
-SOURCES := $(wildcard $(SRC_PATH)/*.cpp)
+#SOURCES := $(wildcard $(SRC_PATH)/*.cpp)
 LIBRARY := $(wildcard $(LIB_PATH)/*.h)
-
-#SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
+SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
 OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
-
+DEPS = $(OBJECTS:.o=.d)
 # PHONY RULES #
 .PHONY: default_target
 default_target: release
@@ -46,10 +45,12 @@ $(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
 	@echo "Linking: $@"
 	$(CXX) $(OBJECTS) -o $@
 
+-include $(DEPS)
+
 # Compiling object files.
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -MP -MMD -c $< -o $@
 
 .PHONY: dirs
 dirs:
@@ -77,20 +78,3 @@ print_files:
 print_flags:
 	@echo "CXXFLAGS: $(CXXFLAGS)"
 	@echo "LDFLAGS: $(LDFLAGS)"
-
-# RULES #
-$(BIN_PATH)/$(BIN_NAME) : $(OBJECTS)
-	@echo "Linking $@"
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
-
-$(OBJ_PATH)/point.o : $(SRC_PATH)/point.cpp
-	$(CXX) $(CXXFLAGS) $^ -o $@;
-
-$(OBJ_PATH)/node.o : $(SRC_PATH)/node.cpp
-	$(CXX) $(CXXFLAGS) $^ -o $@;
-
-$(OBJ_PATH)/quadtree.o : $(SRC_PATH)/quadtree.cpp
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-$(OBJ_PATH)/main.o : $(SRC_PATH)/main.cpp
-	$(CXX) $(CXXFLAGS) $^ -o $@

@@ -2,7 +2,8 @@
 #define QUADTREE_H
 
 class QuadTree{
-
+public:
+	QuadTree();
 };
 
 #endif

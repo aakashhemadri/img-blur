@@ -10,6 +10,7 @@ Point::Point(double x, double y, int opt_value)
 	this->m_y = y;
 	this->m_opt_value = opt_value;
 }
+
 double Point::getX(){ return this->m_x; }
 double Point::getY(){ return this->m_y; }
 void Point::setX(double x){ this->m_x = x; }

@@ -66,7 +66,7 @@ clean:
 	@$(RM) -r $(BUILD_PATH)
 	@$(RM) -r $(BIN_PATH)
 
-.PHONY: info print_path print_files print_flags
+.PHONY: print_path print_files print_flags
 print_path:
 	@echo "Object Directory: $(OBJ_PATH)"
 	@echo "Library Directory: $(LIB_PATH)"

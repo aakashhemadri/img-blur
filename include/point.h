@@ -4,12 +4,13 @@
 class Point
 {
 	private:
+		//Holds coordinates of a particular point that we would signify a "pixel's"
+		//position from topLeft
 		double m_x;
 		double m_y;
-		int m_opt_value;
 	public:
 		Point();
-		Point(double x, double y, int opt_value);
+		Point(double x, double y);
 		double getX();
 		int getValue();
 		void setX(double);

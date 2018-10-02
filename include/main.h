@@ -2,5 +2,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include"node.h"
+#include"point.h"
+#include"quadtree.h"
+#include<iostream>
 
 #endif

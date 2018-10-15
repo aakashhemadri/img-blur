@@ -6,16 +6,18 @@ class Point
 	private:
 		//Holds coordinates of a particular point that we would signify a "pixel's"
 		//position from topLeft
-		double m_x;
-		double m_y;
+		//X-Coordinate
+		int x;
+		//Y-Coordinate
+		int y;
 	public:
 		Point();
-		Point(double x, double y);
-		double getX();
+		Point(int x, int y);
+		int getX();
 		int getValue();
-		void setX(double);
-		double getY();
-		void setY(double);
+		void setX(int);
+		int getY();
+		void setY(int);
 		void setValue(int value);
 };
 

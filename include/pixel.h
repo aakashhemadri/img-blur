@@ -1,16 +1,19 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef PIXEL_H
+#define PIXEL_H
 
 #include"point.h"
 
-class Node{
+class Pixel
+{
 	//This will be the "pixel" data that for now is going to be abstracted as just an integer
-	int data;
+	int R;
+	int G;
+	int B;
 	//Position of the "pixel" we are identifying throught this node.
 	Point pos;
 public:
-	Node();
-	Node(Point&, int&);
+	Pixel();
+	Pixel(Point&);
 };
 
 #endif

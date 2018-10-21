@@ -1,4 +1,4 @@
-from util import Point
+from QuadTree import Point
 class QuadTree:
 	def __init__(self,topLeft=None,botRight=None):
 		# Coordinates of the topleft point and bottomRight point of quadtree

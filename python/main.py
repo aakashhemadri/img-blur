@@ -100,7 +100,7 @@ class quadtree():
 
 def main():
 
-	I=Image.open("606.jpg")
+	I=Image.open("delosinc.png")
 	Tree=quadtree(I)
 	Tree.disp(8)
 

@@ -94,15 +94,15 @@ class quadtree():
 		img.show();
 
 		#Saves the new image in the local directory.
-		img.save('2.jpg')
+		img.save('output.jpg')
 
 
 
 def main():
 
-	I=Image.open("delosinc.png")
+	I=Image.open("input.png")
 	Tree=quadtree(I)
-	Tree.disp(8)
+	Tree.disp(7)
 
 if __name__=="__main__":
 	main()

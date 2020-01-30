@@ -1,1 +1,1 @@
-qtree-comp
+# Quad Tree Compression

@@ -1,4 +1,5 @@
 build/
+*.jpg
 
 # Compiled Object files
 *.slo
